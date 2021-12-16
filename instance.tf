@@ -1,18 +1,8 @@
-module "ec2_instance" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
-  
-
-  name = "single-instance"
-
-  ami                    = "ami-ebd02392"
-  instance_type          = "t2.micro"
-  key_name               = "user1"
-  monitoring             = true
-  vpc_security_group_ids = ["sg-12345678"]
-  subnet_id              = "subnet-eddcdzz4"
+resource "aws_instance" "web" {
+  ami           = ami-0509c15d6eb3fcaa4
+  instance_type = "t2.micro"
 
   tags = {
-    Terraform   = "true"
-    Environment = "dev"
+    Name = "HelloWorld"
   }
 }
